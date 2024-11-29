@@ -10,7 +10,7 @@ namespace CountryStateCityLibrary.Services
 {
     public class CountryService
     {
-        private readonly string fileUrl = "https://evolutyzblobimages.blob.core.windows.net/egifting/countries.xlsx";
+        private readonly string? fileUrl = FileService.CountriesFile;
 
         public List<Country> GetCountries()
         {

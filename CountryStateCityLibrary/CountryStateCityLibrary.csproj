@@ -5,7 +5,7 @@
 
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>CountryStateCityLibrary</PackageId>
-		<Version>1.1.4</Version>
+		<Version>1.2.0</Version>
 		<Authors>Krishna Murali Andiboyina</Authors>
 		<Company>Evolutyz IT Services</Company>
 		<Description>A library to fetch countries, states, and cities</Description>

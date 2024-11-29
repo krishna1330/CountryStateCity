@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>CountryStateCityLibrary</PackageId>
+		<Version>1.1.4</Version>
+		<Authors>Krishna Murali Andiboyina</Authors>
+		<Company>Evolutyz IT Services</Company>
+		<Description>A library to fetch countries, states, and cities</Description>
+		<PackageTags>Countries States Cities</PackageTags>
+		<!--<RepositoryUrl>https://github.com/your-repository</RepositoryUrl>-->
+
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Files\countries.xlsx" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Files\countries.xlsx">
+	    <Pack>True</Pack>
+	    <PackagePath>contentFiles\any\any\Files\countries.xlsx</PackagePath>
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ClosedXML" Version="0.104.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Files\cities.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Files\regions.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Files\states.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Files\subregions.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

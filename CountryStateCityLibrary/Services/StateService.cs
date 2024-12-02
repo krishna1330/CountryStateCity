@@ -11,7 +11,7 @@ namespace CountryStateCityLibrary.Services
     {
         private readonly string? fileUrl = FileService.StatesFile;
 
-        public List<State> GetStatesByCountryId(int countryId)
+        public async Task<List<State>> GetStatesByCountryId(int countryId)
         {
             List<State> states = new List<State>();
 
@@ -19,7 +19,7 @@ namespace CountryStateCityLibrary.Services
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var response = httpClient.GetAsync(fileUrl).Result;
+                    var response = await httpClient.GetAsync(fileUrl);
 
                     if (!response.IsSuccessStatusCode)
                     {

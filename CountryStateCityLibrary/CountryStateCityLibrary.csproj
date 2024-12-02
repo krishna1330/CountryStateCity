@@ -5,7 +5,7 @@
 
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>CountryStateCityLibrary</PackageId>
-		<Version>1.2.2</Version>
+		<Version>1.2.3</Version>
 		<Authors>Krishna Murali Andiboyina</Authors>
 		<Company>Evolutyz IT Services</Company>
 		<Description>
@@ -14,11 +14,12 @@
 			Usage:
 
 			For Countries:
+			
 
 			1. Get all countries:
 
 			CountryService countryService = new CountryService();
-			List&lt;Country&gt; countries = countryService.GetCountries();
+			List&lt;Country&gt; countries = await countryService.GetCountries();
 			foreach (var country in countries)
 			{
 			Console.WriteLine($"ID: {country.CountryId}, Name: {country.CountryName}, PhoneCode: {country.PhoneCode}, Currency: {country.Currency}");
@@ -38,7 +39,7 @@
 			1. Get all states by Country Id:
 
 			StateService stateService = new StateService();
-			List&lt;State&gt; states = stateService.GetStatesByCountryId(1);
+			List&lt;State&gt; states = await stateService.GetStatesByCountryId(1);
 			foreach (var state in states)
 			{
 			Console.WriteLine(state.StateId + " " + state.StateName);
@@ -61,7 +62,7 @@
 			1. Get all cities by State Id:
 
 			CityService cityService = new CityService();
-			List&lt;City&gt; cities = cityService.GetCitiesByStateId(3901);
+			List&lt;City&gt; cities = await cityService.GetCitiesByStateId(3901);
 			foreach (var city in cities)
 			{
 			Console.WriteLine(city.CityId + " " + city.CityName);

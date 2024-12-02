@@ -7,7 +7,7 @@ Usage:
         1. Get all countries:
         
             CountryService countryService = new CountryService();
-            List<Country> countries = countryService.GetCountries();
+            List<Country> countries = await countryService.GetCountries();
             foreach (var country in countries)
             {
                 Console.WriteLine($"ID: {country.CountryId}, Name: {country.CountryName}, PhoneCode: {country.PhoneCode}, Currency: {country.Currency}");
@@ -27,7 +27,7 @@ Usage:
         1. Get all states by Country Id
             
             StateService stateService = new StateService();
-            List<State> states = stateService.GetStatesByCountryId(1);
+            List<State> states = await stateService.GetStatesByCountryId(1);
             foreach (var state in states)
             {
                 Console.WriteLine(state.StateId + " " + state.StateName);
@@ -49,7 +49,7 @@ Usage:
 
         1. Get all cities by State Id
             
-            List<City> cities = cityService.GetCitiesByStateId(3901);
+            List<City> cities = await cityService.GetCitiesByStateId(3901);
             foreach (var city in cities)
             {
                 Console.WriteLine(city.CityId + " " + city.CityName);

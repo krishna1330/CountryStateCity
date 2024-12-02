@@ -11,25 +11,25 @@ namespace CountryStateCityLibrary.Services
     {
         private readonly string? fileUrl = FileService.CitiesFile;
 
-        public List<City> GetCitiesByStateId(int stateId)
+        public async Task<List<City>> GetCitiesByStateId(int stateId)
         {
-            return GetCities((row, columns) =>
+            return await GetCities((row, columns) =>
             {
                 var stateCode = row.Cell(columns["state_id"]).TryGetValue<int>(out var stateCodeValue) ? stateCodeValue : 0;
                 return stateCode == stateId;
             });
         }
 
-        public List<City> GetCitiesByCountryId(int countryId)
+        public async Task<List<City>> GetCitiesByCountryId(int countryId)
         {
-            return GetCities((row, columns) =>
+            return await GetCities((row, columns) =>
             {
                 var countryCode = row.Cell(columns["country_id"]).TryGetValue<int>(out var countryCodeValue) ? countryCodeValue : 0;
                 return countryCode == countryId;
             });
         }
 
-        private List<City> GetCities(Func<IXLRow, Dictionary<string, int>, bool> filter)
+        private async Task<List<City>> GetCities(Func<IXLRow, Dictionary<string, int>, bool> filter)
         {
             List<City> cities = new List<City>();
 
@@ -37,7 +37,7 @@ namespace CountryStateCityLibrary.Services
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var response = httpClient.GetAsync(fileUrl).Result;
+                    var response = await httpClient.GetAsync(fileUrl);
 
                     if (!response.IsSuccessStatusCode)
                     {

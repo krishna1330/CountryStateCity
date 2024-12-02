@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace CountryStateCityLibrary.Services
 {
@@ -12,7 +13,7 @@ namespace CountryStateCityLibrary.Services
     {
         private readonly string? fileUrl = FileService.CountriesFile;
 
-        public List<Country> GetCountries()
+        public async Task<List<Country>> GetCountries()
         {
             List<Country> countries = new List<Country>();
 
@@ -20,14 +21,14 @@ namespace CountryStateCityLibrary.Services
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var response = httpClient.GetAsync(fileUrl).Result;
+                    var response = await httpClient.GetAsync(fileUrl);
 
                     if (!response.IsSuccessStatusCode)
                     {
                         throw new Exception($"Failed to download the file. HTTP Status: {response.StatusCode}");
                     }
 
-                    using (var stream = response.Content.ReadAsStream())
+                    using (var stream = await response.Content.ReadAsStreamAsync())
                     {
                         using (var workbook = new XLWorkbook(stream))
                         {

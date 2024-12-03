@@ -5,7 +5,7 @@
 
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>CountryStateCityLibrary</PackageId>
-		<Version>1.2.3</Version>
+		<Version>1.2.6</Version>
 		<Authors>Krishna Murali Andiboyina</Authors>
 		<Company>Evolutyz IT Services</Company>
 		<Description>

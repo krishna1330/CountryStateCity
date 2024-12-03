@@ -2,13 +2,13 @@
 using CountryStateCityLibrary.Services;
 CountryService countryService = new CountryService();
 
-//List<Country> countries = await countryService.GetCountries();
+List<Country> countries = await countryService.GetCountries();
 
-//Console.WriteLine("Countries:");
-//foreach (var country in countries)
-//{
-//    Console.WriteLine($"ID: {country.CountryId}, Name: {country.CountryName}, PhoneCode: {country.PhoneCode}, Currency: {country.Currency}");
-//}
+Console.WriteLine("Countries:");
+foreach (var country in countries)
+{
+    Console.WriteLine($"ID: {country.CountryId}, Name: {country.CountryName}, PhoneCode: {country.PhoneCode}, Currency: {country.Currency}");
+}
 
 //if (countries.Any())
 //{
@@ -34,12 +34,12 @@ StateService stateService = new StateService();
 
 CityService cityService = new CityService();
 
-//List<City> cities = await cityService.GetCitiesByStateId(3901);
+List<City> cities = await cityService.GetCitiesByStateId(4017);
 
-//foreach (var city in cities)
-//{
-//    Console.WriteLine(city.CityId + " " + city.CityName);
-//}
+foreach (var city in cities)
+{
+    Console.WriteLine(city.CityId + " " + city.CityName);
+}
 
 //List<City> citiesByCountry = await cityService.GetCitiesByCountryId(1);
 
